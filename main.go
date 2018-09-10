@@ -3,6 +3,7 @@ package main
 
 import (
 	"os"
+	"strings"
 	"text/template"
 )
 
@@ -10,10 +11,12 @@ var packages = [...]string{
 	"fmt",
 	"strings",
 	"time",
+	"net/http",
 	"os",
 	"io",
 	"bytes",
 	"errors",
+	"syscall/js",
 }
 
 const codeTpl = `package main
@@ -24,7 +27,7 @@ func main() {}
 `
 
 const makefileTpl = `.PHONY: generate
-generate:
+generate: clean
 	go run main.go
 
 .PHONY: clean
@@ -51,23 +54,25 @@ summary:
 
 func generatePackages() {
 	for _, pkg := range packages {
-		tmpl, err := template.New("pkg").Parse(codeTpl)
-		if err != nil {
-			panic(err)
-		}
+		name := strings.Replace(pkg, "/", "_", -1)
 
-		if _, err := os.Stat(pkg); os.IsNotExist(err) {
-			e := os.Mkdir(pkg, 0777)
+		if _, err := os.Stat(name); os.IsNotExist(err) {
+			e := os.Mkdir(name, 0777)
 			if e != nil {
 				panic(err)
 			}
 		}
 
-		f, err := os.OpenFile(pkg+"/"+pkg+".go", os.O_RDWR|os.O_CREATE, 0644)
+		f, err := os.OpenFile(name+"/"+name+".go", os.O_RDWR|os.O_CREATE, 0644)
 		if err != nil {
 			panic(err)
 		}
 		defer f.Close()
+
+		tmpl, err := template.New("pkg").Parse(codeTpl)
+		if err != nil {
+			panic(err)
+		}
 
 		err = tmpl.Execute(f, struct{ Pkg string }{Pkg: pkg})
 		if err != nil {
@@ -77,18 +82,23 @@ func generatePackages() {
 }
 
 func generateMakefile() {
-	tmpl, err := template.New("makefile").Parse(makefileTpl)
-	if err != nil {
-		panic(err)
-	}
-
 	f, err := os.OpenFile("Makefile", os.O_RDWR|os.O_CREATE, 0777)
 	if err != nil {
 		panic(err)
 	}
 	defer f.Close()
 
-	err = tmpl.Execute(f, struct{ Pkgs []string }{Pkgs: packages[:]})
+	tmpl, err := template.New("makefile").Parse(makefileTpl)
+	if err != nil {
+		panic(err)
+	}
+
+	pkgNames := make([]string, len(packages))
+	for i, pkg := range packages {
+		pkgNames[i] = strings.Replace(pkg, "/", "_", -1)
+	}
+
+	err = tmpl.Execute(f, struct{ Pkgs []string }{Pkgs: pkgNames})
 	if err != nil {
 		panic(err)
 	}
