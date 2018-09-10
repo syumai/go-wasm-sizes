@@ -5,7 +5,6 @@ generate:
 .PHONY: clean
 clean:
 	rm Makefile
-
 	rm -r ${PWD}/fmt
 	rm -r ${PWD}/strings
 	rm -r ${PWD}/time
@@ -17,7 +16,6 @@ clean:
 .PHONY: build
 build:
 	GOOS=js GOARCH=wasm go build -o ${PWD}/blank/blank.wasm ${PWD}/blank/blank.go
-
 	GOOS=js GOARCH=wasm go build -o ${PWD}/fmt/fmt.wasm ${PWD}/fmt/fmt.go
 	GOOS=js GOARCH=wasm go build -o ${PWD}/strings/strings.wasm ${PWD}/strings/strings.go
 	GOOS=js GOARCH=wasm go build -o ${PWD}/time/time.wasm ${PWD}/time/time.go
@@ -29,7 +27,6 @@ build:
 .PHONY: summary
 summary:
 	@ls -lh ${PWD}/blank/blank.wasm
-
 	@ls -lh ${PWD}/fmt/fmt.wasm
 	@ls -lh ${PWD}/strings/strings.wasm
 	@ls -lh ${PWD}/time/time.wasm

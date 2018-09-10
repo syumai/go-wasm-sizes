@@ -30,21 +30,21 @@ generate:
 .PHONY: clean
 clean:
 	rm Makefile
-{{range $i, $p :=  .Pkgs}}
+{{- range $i, $p :=  .Pkgs}}
 	rm -r ${PWD}/{{$p}}
 {{- end}}
 
 .PHONY: build
 build:
 	GOOS=js GOARCH=wasm go build -o ${PWD}/blank/blank.wasm ${PWD}/blank/blank.go
-{{range $i, $p :=  .Pkgs}}
+{{- range $i, $p :=  .Pkgs}}
 	GOOS=js GOARCH=wasm go build -o ${PWD}/{{$p}}/{{$p}}.wasm ${PWD}/{{$p}}/{{$p}}.go
 {{- end}}
 
 .PHONY: summary
 summary:
 	@ls -lh ${PWD}/blank/blank.wasm
-{{range $i, $p :=  .Pkgs}}
+{{- range $i, $p :=  .Pkgs}}
 	@ls -lh ${PWD}/{{$p}}/{{$p}}.wasm
 {{- end}}
 `

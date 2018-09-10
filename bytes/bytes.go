@@ -1,7 +1,5 @@
 package main
 
-import "bytes"
+import _ "bytes"
 
-func main() {
-	bytes.Repeat([]byte{'a', 'b', 'c'}, 5)
-}
+func main() {}
