@@ -7,18 +7,6 @@ import (
 	"text/template"
 )
 
-var packages = [...]string{
-	"fmt",
-	"strings",
-	"time",
-	"net/http",
-	"os",
-	"io",
-	"bytes",
-	"errors",
-	"syscall/js",
-}
-
 const codeTpl = `package main
 
 import _ "{{.Pkg}}"
@@ -28,7 +16,7 @@ func main() {}
 
 const makefileTpl = `.PHONY: generate
 generate: clean
-	go run main.go
+	go run main.go packages.go
 
 .PHONY: clean
 clean:
