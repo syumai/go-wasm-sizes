@@ -23,22 +23,23 @@ generate: clean
 .PHONY: clean
 clean:
 	rm Makefile
+{{- $pkgDir := .PkgDir -}}
 {{- range $i, $p := .Pkgs }}
-	rm -r ${PWD}/packages/{{$p}}
+	rm -r ${PWD}/{{$pkgDir}}/{{$p}}
 {{- end}}
 
 .PHONY: build
 build:
-	GOOS=js GOARCH=wasm go build -o ${PWD}/packages/blank/blank.wasm ${PWD}/packages/blank/blank.go
+	GOOS=js GOARCH=wasm go build -o ${PWD}/{{$pkgDir}}/blank/blank.wasm ${PWD}/{{$pkgDir}}/blank/blank.go
 {{- range $i, $p :=  .Pkgs}}
-	GOOS=js GOARCH=wasm go build -o ${PWD}/packages/{{$p}}/{{$p}}.wasm ${PWD}/packages/{{$p}}/{{$p}}.go
+	GOOS=js GOARCH=wasm go build -o ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.wasm ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.go
 {{- end}}
 
 .PHONY: summary
 summary:
-	@ls -lh ${PWD}/packages/blank/blank.wasm
+	@ls -lh ${PWD}/{{$pkgDir}}/blank/blank.wasm
 {{- range $i, $p :=  .Pkgs}}
-	@ls -lh ${PWD}/packages/{{$p}}/{{$p}}.wasm
+	@ls -lh ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.wasm
 {{- end}}
 `
 
@@ -95,7 +96,7 @@ func generateMakefile() {
 		pkgNames[i] = strings.Replace(pkg, "/", "_", -1)
 	}
 
-	err = tmpl.Execute(f, struct{ Pkgs []string }{Pkgs: pkgNames})
+	err = tmpl.Execute(f, struct{ Pkgs []string; PkgDir string }{Pkgs: pkgNames, PkgDir: pkgDir})
 	if err != nil {
 		panic(err)
 	}
