@@ -17,24 +17,24 @@ make summary  # show wasm sizes
 ## Summary
 
 ```sh
-1.3MB blank/blank.wasm # This package only contains func main().
-1.3MB plugin/plugin.wasm
-1.3MB math/math.wasm
-1.3MB errors/errors.wasm
-1.3MB unsafe/unsafe.wasm
-1.3MB encoding/encoding.wasm
-1.3MB math_bits/math_bits.wasm
-1.3MB math_cmplx/math_cmplx.wasm
-1.3MB sync_atomic/sync_atomic.wasm
-1.3MB runtime_race/runtime_race.wasm
-1.3MB unicode_utf8/unicode_utf8.wasm
-1.3MB crypto_subtle/crypto_subtle.wasm
-1.3MB unicode_utf16/unicode_utf16.wasm
-1.3MB container_list/container_list.wasm
-1.3MB container_ring/container_ring.wasm
-1.3MB runtime/runtime.wasm
-1.3MB strconv/strconv.wasm
-1.3MB crypto_rc4/crypto_rc4.wasm
+1.30MB blank/blank.wasm # This package only contains func main().
+1.30MB plugin/plugin.wasm
+1.30MB math/math.wasm
+1.30MB errors/errors.wasm
+1.30MB unsafe/unsafe.wasm
+1.30MB encoding/encoding.wasm
+1.30MB math_bits/math_bits.wasm
+1.30MB math_cmplx/math_cmplx.wasm
+1.30MB sync_atomic/sync_atomic.wasm
+1.30MB runtime_race/runtime_race.wasm
+1.30MB unicode_utf8/unicode_utf8.wasm
+1.30MB crypto_subtle/crypto_subtle.wasm
+1.30MB unicode_utf16/unicode_utf16.wasm
+1.30MB container_list/container_list.wasm
+1.30MB container_ring/container_ring.wasm
+1.30MB runtime/runtime.wasm
+1.30MB strconv/strconv.wasm
+1.30MB crypto_rc4/crypto_rc4.wasm
 1.31MB sync/sync.wasm
 1.31MB io/io.wasm
 1.31MB hash/hash.wasm
@@ -64,7 +64,7 @@ make summary  # show wasm sizes
 1.45MB path/path.wasm
 1.46MB bufio/bufio.wasm
 1.46MB encoding_base32/encoding_base32.wasm
-1.5MB os/os.wasm
+1.50MB os/os.wasm
 1.51MB image/image.wasm
 1.51MB image_draw/image_draw.wasm
 1.52MB os_signal/os_signal.wasm
@@ -78,9 +78,9 @@ make summary  # show wasm sizes
 1.99MB compress_bzip2/compress_bzip2.wasm
 1.99MB encoding_base64/encoding_base64.wasm
 1.99MB encoding_pem/encoding_pem.wasm
-2.0MB regexp_syntax/regexp_syntax.wasm
-2.0MB regexp/regexp.wasm
-2.0MB index_suffixarray/index_suffixarray.wasm
+2.00MB regexp_syntax/regexp_syntax.wasm
+2.00MB regexp/regexp.wasm
+2.00MB index_suffixarray/index_suffixarray.wasm
 2.15MB fmt/fmt.wasm
 2.15MB runtime_debug/runtime_debug.wasm
 2.15MB path_filepath/path_filepath.wasm
@@ -110,8 +110,8 @@ make summary  # show wasm sizes
 2.19MB log/log.wasm
 2.19MB testing_iotest/testing_iotest.wasm
 2.19MB debug_dwarf/debug_dwarf.wasm
-2.2MB compress_flate/compress_flate.wasm
-2.2MB compress_zlib/compress_zlib.wasm
+2.20MB compress_flate/compress_flate.wasm
+2.20MB compress_zlib/compress_zlib.wasm
 2.21MB compress_gzip/compress_gzip.wasm
 2.22MB runtime_pprof/runtime_pprof.wasm
 2.24MB debug_macho/debug_macho.wasm
@@ -135,8 +135,8 @@ make summary  # show wasm sizes
 2.63MB testing_quick/testing_quick.wasm
 2.63MB testing/testing.wasm
 2.65MB encoding_xml/encoding_xml.wasm
-2.7MB go_constant/go_constant.wasm
-2.7MB archive_zip/archive_zip.wasm
+2.70MB go_constant/go_constant.wasm
+2.70MB archive_zip/archive_zip.wasm
 2.76MB encoding_gob/encoding_gob.wasm
 2.77MB crypto_x509/crypto_x509.wasm
 2.78MB crypto_tls/crypto_tls.wasm
@@ -146,7 +146,7 @@ make summary  # show wasm sizes
 2.87MB net_mail/net_mail.wasm
 3.12MB go_types/go_types.wasm
 3.12MB mime_multipart/mime_multipart.wasm
-3.3MB text_template/text_template.wasm
+3.30MB text_template/text_template.wasm
 3.93MB go_doc/go_doc.wasm
 4.36MB html_template/html_template.wasm
 5.04MB go_build/go_build.wasm

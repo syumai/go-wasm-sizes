@@ -37,7 +37,7 @@ build:
 
 .PHONY: summary
 summary:
-	ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"#{(s/(1000*1000)).round(1)}MB #{n}"}'
+	ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"%.2f"%(s/(1000*1000))+"MB #{n}"}'
 `
 
 func generatePackages() {
