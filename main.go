@@ -35,9 +35,29 @@ build:
 	GOOS=js GOARCH=wasm go build -o ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.wasm ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.go
 {{- end}}
 
+.PHONY: compress
+compress: compress/gzip compress/brotli
+
+compress/gzip:
+	gzip -k ${PWD}/{{$pkgDir}}/blank/blank.wasm
+{{- range $i, $p :=  .Pkgs}}
+	gzip -k ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.wasm
+{{- end}}
+
+compress/brotli:
+	brotli ${PWD}/{{$pkgDir}}/blank/blank.wasm
+{{- range $i, $p :=  .Pkgs}}
+	brotli ${PWD}/{{$pkgDir}}/{{$p}}/{{$p}}.wasm
+{{- end}}
+
 .PHONY: summary
 summary:
-	ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"%.2f"%(s/(1000*1000))+"MB #{n}"}'
+	@echo "# RAW"
+	@ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"%.2f"%(s/(1000*1000))+"MB #{n}"}'
+	@echo "\n# GZip"
+	@ls -l packages/**/*.wasm.gz | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"#{(s/1000).to_i}KB #{n}"}'
+	@echo "\n# Brotli"
+	@ls -l packages/**/*.wasm.br | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"#{(s/1000).to_i}KB #{n}"}'
 `
 
 func generatePackages() {

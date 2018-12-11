@@ -296,6 +296,306 @@ build:
 	GOOS=js GOARCH=wasm go build -o ${PWD}/packages/unicode_utf8/unicode_utf8.wasm ${PWD}/packages/unicode_utf8/unicode_utf8.go
 	GOOS=js GOARCH=wasm go build -o ${PWD}/packages/unsafe/unsafe.wasm ${PWD}/packages/unsafe/unsafe.go
 
+.PHONY: compress
+compress: compress/gzip compress/brotli
+
+compress/gzip:
+	gzip -k ${PWD}/packages/blank/blank.wasm
+	gzip -k ${PWD}/packages/archive_tar/archive_tar.wasm
+	gzip -k ${PWD}/packages/archive_zip/archive_zip.wasm
+	gzip -k ${PWD}/packages/bufio/bufio.wasm
+	gzip -k ${PWD}/packages/bytes/bytes.wasm
+	gzip -k ${PWD}/packages/compress_bzip2/compress_bzip2.wasm
+	gzip -k ${PWD}/packages/compress_flate/compress_flate.wasm
+	gzip -k ${PWD}/packages/compress_gzip/compress_gzip.wasm
+	gzip -k ${PWD}/packages/compress_lzw/compress_lzw.wasm
+	gzip -k ${PWD}/packages/compress_zlib/compress_zlib.wasm
+	gzip -k ${PWD}/packages/container_heap/container_heap.wasm
+	gzip -k ${PWD}/packages/container_list/container_list.wasm
+	gzip -k ${PWD}/packages/container_ring/container_ring.wasm
+	gzip -k ${PWD}/packages/context/context.wasm
+	gzip -k ${PWD}/packages/crypto/crypto.wasm
+	gzip -k ${PWD}/packages/crypto_aes/crypto_aes.wasm
+	gzip -k ${PWD}/packages/crypto_cipher/crypto_cipher.wasm
+	gzip -k ${PWD}/packages/crypto_des/crypto_des.wasm
+	gzip -k ${PWD}/packages/crypto_dsa/crypto_dsa.wasm
+	gzip -k ${PWD}/packages/crypto_ecdsa/crypto_ecdsa.wasm
+	gzip -k ${PWD}/packages/crypto_elliptic/crypto_elliptic.wasm
+	gzip -k ${PWD}/packages/crypto_hmac/crypto_hmac.wasm
+	gzip -k ${PWD}/packages/crypto_md5/crypto_md5.wasm
+	gzip -k ${PWD}/packages/crypto_rand/crypto_rand.wasm
+	gzip -k ${PWD}/packages/crypto_rc4/crypto_rc4.wasm
+	gzip -k ${PWD}/packages/crypto_rsa/crypto_rsa.wasm
+	gzip -k ${PWD}/packages/crypto_sha1/crypto_sha1.wasm
+	gzip -k ${PWD}/packages/crypto_sha256/crypto_sha256.wasm
+	gzip -k ${PWD}/packages/crypto_sha512/crypto_sha512.wasm
+	gzip -k ${PWD}/packages/crypto_subtle/crypto_subtle.wasm
+	gzip -k ${PWD}/packages/crypto_tls/crypto_tls.wasm
+	gzip -k ${PWD}/packages/crypto_x509/crypto_x509.wasm
+	gzip -k ${PWD}/packages/crypto_x509_pkix/crypto_x509_pkix.wasm
+	gzip -k ${PWD}/packages/database_sql/database_sql.wasm
+	gzip -k ${PWD}/packages/database_sql_driver/database_sql_driver.wasm
+	gzip -k ${PWD}/packages/debug_dwarf/debug_dwarf.wasm
+	gzip -k ${PWD}/packages/debug_elf/debug_elf.wasm
+	gzip -k ${PWD}/packages/debug_gosym/debug_gosym.wasm
+	gzip -k ${PWD}/packages/debug_macho/debug_macho.wasm
+	gzip -k ${PWD}/packages/debug_pe/debug_pe.wasm
+	gzip -k ${PWD}/packages/debug_plan9obj/debug_plan9obj.wasm
+	gzip -k ${PWD}/packages/encoding/encoding.wasm
+	gzip -k ${PWD}/packages/encoding_ascii85/encoding_ascii85.wasm
+	gzip -k ${PWD}/packages/encoding_asn1/encoding_asn1.wasm
+	gzip -k ${PWD}/packages/encoding_base32/encoding_base32.wasm
+	gzip -k ${PWD}/packages/encoding_base64/encoding_base64.wasm
+	gzip -k ${PWD}/packages/encoding_binary/encoding_binary.wasm
+	gzip -k ${PWD}/packages/encoding_csv/encoding_csv.wasm
+	gzip -k ${PWD}/packages/encoding_gob/encoding_gob.wasm
+	gzip -k ${PWD}/packages/encoding_hex/encoding_hex.wasm
+	gzip -k ${PWD}/packages/encoding_json/encoding_json.wasm
+	gzip -k ${PWD}/packages/encoding_pem/encoding_pem.wasm
+	gzip -k ${PWD}/packages/encoding_xml/encoding_xml.wasm
+	gzip -k ${PWD}/packages/errors/errors.wasm
+	gzip -k ${PWD}/packages/expvar/expvar.wasm
+	gzip -k ${PWD}/packages/flag/flag.wasm
+	gzip -k ${PWD}/packages/fmt/fmt.wasm
+	gzip -k ${PWD}/packages/go_ast/go_ast.wasm
+	gzip -k ${PWD}/packages/go_build/go_build.wasm
+	gzip -k ${PWD}/packages/go_constant/go_constant.wasm
+	gzip -k ${PWD}/packages/go_doc/go_doc.wasm
+	gzip -k ${PWD}/packages/go_format/go_format.wasm
+	gzip -k ${PWD}/packages/go_importer/go_importer.wasm
+	gzip -k ${PWD}/packages/go_parser/go_parser.wasm
+	gzip -k ${PWD}/packages/go_printer/go_printer.wasm
+	gzip -k ${PWD}/packages/go_scanner/go_scanner.wasm
+	gzip -k ${PWD}/packages/go_token/go_token.wasm
+	gzip -k ${PWD}/packages/go_types/go_types.wasm
+	gzip -k ${PWD}/packages/hash/hash.wasm
+	gzip -k ${PWD}/packages/hash_adler32/hash_adler32.wasm
+	gzip -k ${PWD}/packages/hash_crc32/hash_crc32.wasm
+	gzip -k ${PWD}/packages/hash_crc64/hash_crc64.wasm
+	gzip -k ${PWD}/packages/hash_fnv/hash_fnv.wasm
+	gzip -k ${PWD}/packages/html/html.wasm
+	gzip -k ${PWD}/packages/html_template/html_template.wasm
+	gzip -k ${PWD}/packages/image/image.wasm
+	gzip -k ${PWD}/packages/image_color/image_color.wasm
+	gzip -k ${PWD}/packages/image_color_palette/image_color_palette.wasm
+	gzip -k ${PWD}/packages/image_draw/image_draw.wasm
+	gzip -k ${PWD}/packages/image_gif/image_gif.wasm
+	gzip -k ${PWD}/packages/image_jpeg/image_jpeg.wasm
+	gzip -k ${PWD}/packages/image_png/image_png.wasm
+	gzip -k ${PWD}/packages/index_suffixarray/index_suffixarray.wasm
+	gzip -k ${PWD}/packages/io/io.wasm
+	gzip -k ${PWD}/packages/io_ioutil/io_ioutil.wasm
+	gzip -k ${PWD}/packages/log/log.wasm
+	gzip -k ${PWD}/packages/log_syslog/log_syslog.wasm
+	gzip -k ${PWD}/packages/math/math.wasm
+	gzip -k ${PWD}/packages/math_big/math_big.wasm
+	gzip -k ${PWD}/packages/math_bits/math_bits.wasm
+	gzip -k ${PWD}/packages/math_cmplx/math_cmplx.wasm
+	gzip -k ${PWD}/packages/math_rand/math_rand.wasm
+	gzip -k ${PWD}/packages/mime/mime.wasm
+	gzip -k ${PWD}/packages/mime_multipart/mime_multipart.wasm
+	gzip -k ${PWD}/packages/mime_quotedprintable/mime_quotedprintable.wasm
+	gzip -k ${PWD}/packages/net/net.wasm
+	gzip -k ${PWD}/packages/net_http/net_http.wasm
+	gzip -k ${PWD}/packages/net_http_cgi/net_http_cgi.wasm
+	gzip -k ${PWD}/packages/net_http_cookiejar/net_http_cookiejar.wasm
+	gzip -k ${PWD}/packages/net_http_fcgi/net_http_fcgi.wasm
+	gzip -k ${PWD}/packages/net_http_httptest/net_http_httptest.wasm
+	gzip -k ${PWD}/packages/net_http_httptrace/net_http_httptrace.wasm
+	gzip -k ${PWD}/packages/net_http_httputil/net_http_httputil.wasm
+	gzip -k ${PWD}/packages/net_http_pprof/net_http_pprof.wasm
+	gzip -k ${PWD}/packages/net_mail/net_mail.wasm
+	gzip -k ${PWD}/packages/net_rpc/net_rpc.wasm
+	gzip -k ${PWD}/packages/net_rpc_jsonrpc/net_rpc_jsonrpc.wasm
+	gzip -k ${PWD}/packages/net_smtp/net_smtp.wasm
+	gzip -k ${PWD}/packages/net_textproto/net_textproto.wasm
+	gzip -k ${PWD}/packages/net_url/net_url.wasm
+	gzip -k ${PWD}/packages/os/os.wasm
+	gzip -k ${PWD}/packages/os_exec/os_exec.wasm
+	gzip -k ${PWD}/packages/os_signal/os_signal.wasm
+	gzip -k ${PWD}/packages/os_user/os_user.wasm
+	gzip -k ${PWD}/packages/path/path.wasm
+	gzip -k ${PWD}/packages/path_filepath/path_filepath.wasm
+	gzip -k ${PWD}/packages/plugin/plugin.wasm
+	gzip -k ${PWD}/packages/reflect/reflect.wasm
+	gzip -k ${PWD}/packages/regexp/regexp.wasm
+	gzip -k ${PWD}/packages/regexp_syntax/regexp_syntax.wasm
+	gzip -k ${PWD}/packages/runtime/runtime.wasm
+	gzip -k ${PWD}/packages/runtime_debug/runtime_debug.wasm
+	gzip -k ${PWD}/packages/runtime_pprof/runtime_pprof.wasm
+	gzip -k ${PWD}/packages/runtime_race/runtime_race.wasm
+	gzip -k ${PWD}/packages/runtime_trace/runtime_trace.wasm
+	gzip -k ${PWD}/packages/sort/sort.wasm
+	gzip -k ${PWD}/packages/strconv/strconv.wasm
+	gzip -k ${PWD}/packages/strings/strings.wasm
+	gzip -k ${PWD}/packages/sync/sync.wasm
+	gzip -k ${PWD}/packages/sync_atomic/sync_atomic.wasm
+	gzip -k ${PWD}/packages/syscall/syscall.wasm
+	gzip -k ${PWD}/packages/syscall_js/syscall_js.wasm
+	gzip -k ${PWD}/packages/testing/testing.wasm
+	gzip -k ${PWD}/packages/testing_iotest/testing_iotest.wasm
+	gzip -k ${PWD}/packages/testing_quick/testing_quick.wasm
+	gzip -k ${PWD}/packages/text_scanner/text_scanner.wasm
+	gzip -k ${PWD}/packages/text_tabwriter/text_tabwriter.wasm
+	gzip -k ${PWD}/packages/text_template/text_template.wasm
+	gzip -k ${PWD}/packages/text_template_parse/text_template_parse.wasm
+	gzip -k ${PWD}/packages/time/time.wasm
+	gzip -k ${PWD}/packages/unicode/unicode.wasm
+	gzip -k ${PWD}/packages/unicode_utf16/unicode_utf16.wasm
+	gzip -k ${PWD}/packages/unicode_utf8/unicode_utf8.wasm
+	gzip -k ${PWD}/packages/unsafe/unsafe.wasm
+
+compress/brotli:
+	brotli ${PWD}/packages/blank/blank.wasm
+	brotli ${PWD}/packages/archive_tar/archive_tar.wasm
+	brotli ${PWD}/packages/archive_zip/archive_zip.wasm
+	brotli ${PWD}/packages/bufio/bufio.wasm
+	brotli ${PWD}/packages/bytes/bytes.wasm
+	brotli ${PWD}/packages/compress_bzip2/compress_bzip2.wasm
+	brotli ${PWD}/packages/compress_flate/compress_flate.wasm
+	brotli ${PWD}/packages/compress_gzip/compress_gzip.wasm
+	brotli ${PWD}/packages/compress_lzw/compress_lzw.wasm
+	brotli ${PWD}/packages/compress_zlib/compress_zlib.wasm
+	brotli ${PWD}/packages/container_heap/container_heap.wasm
+	brotli ${PWD}/packages/container_list/container_list.wasm
+	brotli ${PWD}/packages/container_ring/container_ring.wasm
+	brotli ${PWD}/packages/context/context.wasm
+	brotli ${PWD}/packages/crypto/crypto.wasm
+	brotli ${PWD}/packages/crypto_aes/crypto_aes.wasm
+	brotli ${PWD}/packages/crypto_cipher/crypto_cipher.wasm
+	brotli ${PWD}/packages/crypto_des/crypto_des.wasm
+	brotli ${PWD}/packages/crypto_dsa/crypto_dsa.wasm
+	brotli ${PWD}/packages/crypto_ecdsa/crypto_ecdsa.wasm
+	brotli ${PWD}/packages/crypto_elliptic/crypto_elliptic.wasm
+	brotli ${PWD}/packages/crypto_hmac/crypto_hmac.wasm
+	brotli ${PWD}/packages/crypto_md5/crypto_md5.wasm
+	brotli ${PWD}/packages/crypto_rand/crypto_rand.wasm
+	brotli ${PWD}/packages/crypto_rc4/crypto_rc4.wasm
+	brotli ${PWD}/packages/crypto_rsa/crypto_rsa.wasm
+	brotli ${PWD}/packages/crypto_sha1/crypto_sha1.wasm
+	brotli ${PWD}/packages/crypto_sha256/crypto_sha256.wasm
+	brotli ${PWD}/packages/crypto_sha512/crypto_sha512.wasm
+	brotli ${PWD}/packages/crypto_subtle/crypto_subtle.wasm
+	brotli ${PWD}/packages/crypto_tls/crypto_tls.wasm
+	brotli ${PWD}/packages/crypto_x509/crypto_x509.wasm
+	brotli ${PWD}/packages/crypto_x509_pkix/crypto_x509_pkix.wasm
+	brotli ${PWD}/packages/database_sql/database_sql.wasm
+	brotli ${PWD}/packages/database_sql_driver/database_sql_driver.wasm
+	brotli ${PWD}/packages/debug_dwarf/debug_dwarf.wasm
+	brotli ${PWD}/packages/debug_elf/debug_elf.wasm
+	brotli ${PWD}/packages/debug_gosym/debug_gosym.wasm
+	brotli ${PWD}/packages/debug_macho/debug_macho.wasm
+	brotli ${PWD}/packages/debug_pe/debug_pe.wasm
+	brotli ${PWD}/packages/debug_plan9obj/debug_plan9obj.wasm
+	brotli ${PWD}/packages/encoding/encoding.wasm
+	brotli ${PWD}/packages/encoding_ascii85/encoding_ascii85.wasm
+	brotli ${PWD}/packages/encoding_asn1/encoding_asn1.wasm
+	brotli ${PWD}/packages/encoding_base32/encoding_base32.wasm
+	brotli ${PWD}/packages/encoding_base64/encoding_base64.wasm
+	brotli ${PWD}/packages/encoding_binary/encoding_binary.wasm
+	brotli ${PWD}/packages/encoding_csv/encoding_csv.wasm
+	brotli ${PWD}/packages/encoding_gob/encoding_gob.wasm
+	brotli ${PWD}/packages/encoding_hex/encoding_hex.wasm
+	brotli ${PWD}/packages/encoding_json/encoding_json.wasm
+	brotli ${PWD}/packages/encoding_pem/encoding_pem.wasm
+	brotli ${PWD}/packages/encoding_xml/encoding_xml.wasm
+	brotli ${PWD}/packages/errors/errors.wasm
+	brotli ${PWD}/packages/expvar/expvar.wasm
+	brotli ${PWD}/packages/flag/flag.wasm
+	brotli ${PWD}/packages/fmt/fmt.wasm
+	brotli ${PWD}/packages/go_ast/go_ast.wasm
+	brotli ${PWD}/packages/go_build/go_build.wasm
+	brotli ${PWD}/packages/go_constant/go_constant.wasm
+	brotli ${PWD}/packages/go_doc/go_doc.wasm
+	brotli ${PWD}/packages/go_format/go_format.wasm
+	brotli ${PWD}/packages/go_importer/go_importer.wasm
+	brotli ${PWD}/packages/go_parser/go_parser.wasm
+	brotli ${PWD}/packages/go_printer/go_printer.wasm
+	brotli ${PWD}/packages/go_scanner/go_scanner.wasm
+	brotli ${PWD}/packages/go_token/go_token.wasm
+	brotli ${PWD}/packages/go_types/go_types.wasm
+	brotli ${PWD}/packages/hash/hash.wasm
+	brotli ${PWD}/packages/hash_adler32/hash_adler32.wasm
+	brotli ${PWD}/packages/hash_crc32/hash_crc32.wasm
+	brotli ${PWD}/packages/hash_crc64/hash_crc64.wasm
+	brotli ${PWD}/packages/hash_fnv/hash_fnv.wasm
+	brotli ${PWD}/packages/html/html.wasm
+	brotli ${PWD}/packages/html_template/html_template.wasm
+	brotli ${PWD}/packages/image/image.wasm
+	brotli ${PWD}/packages/image_color/image_color.wasm
+	brotli ${PWD}/packages/image_color_palette/image_color_palette.wasm
+	brotli ${PWD}/packages/image_draw/image_draw.wasm
+	brotli ${PWD}/packages/image_gif/image_gif.wasm
+	brotli ${PWD}/packages/image_jpeg/image_jpeg.wasm
+	brotli ${PWD}/packages/image_png/image_png.wasm
+	brotli ${PWD}/packages/index_suffixarray/index_suffixarray.wasm
+	brotli ${PWD}/packages/io/io.wasm
+	brotli ${PWD}/packages/io_ioutil/io_ioutil.wasm
+	brotli ${PWD}/packages/log/log.wasm
+	brotli ${PWD}/packages/log_syslog/log_syslog.wasm
+	brotli ${PWD}/packages/math/math.wasm
+	brotli ${PWD}/packages/math_big/math_big.wasm
+	brotli ${PWD}/packages/math_bits/math_bits.wasm
+	brotli ${PWD}/packages/math_cmplx/math_cmplx.wasm
+	brotli ${PWD}/packages/math_rand/math_rand.wasm
+	brotli ${PWD}/packages/mime/mime.wasm
+	brotli ${PWD}/packages/mime_multipart/mime_multipart.wasm
+	brotli ${PWD}/packages/mime_quotedprintable/mime_quotedprintable.wasm
+	brotli ${PWD}/packages/net/net.wasm
+	brotli ${PWD}/packages/net_http/net_http.wasm
+	brotli ${PWD}/packages/net_http_cgi/net_http_cgi.wasm
+	brotli ${PWD}/packages/net_http_cookiejar/net_http_cookiejar.wasm
+	brotli ${PWD}/packages/net_http_fcgi/net_http_fcgi.wasm
+	brotli ${PWD}/packages/net_http_httptest/net_http_httptest.wasm
+	brotli ${PWD}/packages/net_http_httptrace/net_http_httptrace.wasm
+	brotli ${PWD}/packages/net_http_httputil/net_http_httputil.wasm
+	brotli ${PWD}/packages/net_http_pprof/net_http_pprof.wasm
+	brotli ${PWD}/packages/net_mail/net_mail.wasm
+	brotli ${PWD}/packages/net_rpc/net_rpc.wasm
+	brotli ${PWD}/packages/net_rpc_jsonrpc/net_rpc_jsonrpc.wasm
+	brotli ${PWD}/packages/net_smtp/net_smtp.wasm
+	brotli ${PWD}/packages/net_textproto/net_textproto.wasm
+	brotli ${PWD}/packages/net_url/net_url.wasm
+	brotli ${PWD}/packages/os/os.wasm
+	brotli ${PWD}/packages/os_exec/os_exec.wasm
+	brotli ${PWD}/packages/os_signal/os_signal.wasm
+	brotli ${PWD}/packages/os_user/os_user.wasm
+	brotli ${PWD}/packages/path/path.wasm
+	brotli ${PWD}/packages/path_filepath/path_filepath.wasm
+	brotli ${PWD}/packages/plugin/plugin.wasm
+	brotli ${PWD}/packages/reflect/reflect.wasm
+	brotli ${PWD}/packages/regexp/regexp.wasm
+	brotli ${PWD}/packages/regexp_syntax/regexp_syntax.wasm
+	brotli ${PWD}/packages/runtime/runtime.wasm
+	brotli ${PWD}/packages/runtime_debug/runtime_debug.wasm
+	brotli ${PWD}/packages/runtime_pprof/runtime_pprof.wasm
+	brotli ${PWD}/packages/runtime_race/runtime_race.wasm
+	brotli ${PWD}/packages/runtime_trace/runtime_trace.wasm
+	brotli ${PWD}/packages/sort/sort.wasm
+	brotli ${PWD}/packages/strconv/strconv.wasm
+	brotli ${PWD}/packages/strings/strings.wasm
+	brotli ${PWD}/packages/sync/sync.wasm
+	brotli ${PWD}/packages/sync_atomic/sync_atomic.wasm
+	brotli ${PWD}/packages/syscall/syscall.wasm
+	brotli ${PWD}/packages/syscall_js/syscall_js.wasm
+	brotli ${PWD}/packages/testing/testing.wasm
+	brotli ${PWD}/packages/testing_iotest/testing_iotest.wasm
+	brotli ${PWD}/packages/testing_quick/testing_quick.wasm
+	brotli ${PWD}/packages/text_scanner/text_scanner.wasm
+	brotli ${PWD}/packages/text_tabwriter/text_tabwriter.wasm
+	brotli ${PWD}/packages/text_template/text_template.wasm
+	brotli ${PWD}/packages/text_template_parse/text_template_parse.wasm
+	brotli ${PWD}/packages/time/time.wasm
+	brotli ${PWD}/packages/unicode/unicode.wasm
+	brotli ${PWD}/packages/unicode_utf16/unicode_utf16.wasm
+	brotli ${PWD}/packages/unicode_utf8/unicode_utf8.wasm
+	brotli ${PWD}/packages/unsafe/unsafe.wasm
+
 .PHONY: summary
 summary:
-	ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"%.2f"%(s/(1000*1000))+"MB #{n}"}'
+	@echo "# RAW"
+	@ls -l packages/**/*.wasm | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"%.2f"%(s/(1000*1000))+"MB #{n}"}'
+	@echo "\n# GZip"
+	@ls -l packages/**/*.wasm.gz | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"#{(s/1000).to_i}KB #{n}"}'
+	@echo "\n# Brotli"
+	@ls -l packages/**/*.wasm.br | ruby -e 'puts STDIN.each_line.map(&:split).map{|a|[a[4].to_f,a.last[9..-1]]}.sort{|a,b|a[0]<=>b[0]}.map{|s,n|"#{(s/1000).to_i}KB #{n}"}'

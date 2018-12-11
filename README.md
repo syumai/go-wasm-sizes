@@ -6,15 +6,24 @@
 
 * Each package contains only `import _ "pkg"` and `func main()`.
 
+## Requirements
+
+* Go 1.11
+* Gzip
+* Brotli
+
 ## Commands
 
 ```sh
 make generate # generate packages based on main.go
 make build    # build packages
+make compress # compress built wasm files
 make summary  # show wasm sizes
 ```
 
 ## Summary
+
+### RAW
 
 ```sh
 1.30MB blank/blank.wasm # This package only contains func main().
@@ -162,3 +171,302 @@ make summary  # show wasm sizes
 10.64MB net_rpc_jsonrpc/net_rpc_jsonrpc.wasm
 11.32MB net_http_pprof/net_http_pprof.wasm
 ```
+
+### Gzip
+
+```sh
+287KB blank/blank.wasm.gz # This package only contains func main().
+287KB errors/errors.wasm.gz
+287KB unsafe/unsafe.wasm.gz
+287KB math/math.wasm.gz
+287KB encoding/encoding.wasm.gz
+287KB math_bits/math_bits.wasm.gz
+287KB runtime_race/runtime_race.wasm.gz
+287KB math_cmplx/math_cmplx.wasm.gz
+287KB sync_atomic/sync_atomic.wasm.gz
+287KB runtime/runtime.wasm.gz
+287KB container_ring/container_ring.wasm.gz
+287KB container_list/container_list.wasm.gz
+287KB unicode_utf16/unicode_utf16.wasm.gz
+287KB unicode_utf8/unicode_utf8.wasm.gz
+287KB crypto_subtle/crypto_subtle.wasm.gz
+287KB strconv/strconv.wasm.gz
+287KB plugin/plugin.wasm.gz
+287KB crypto_rc4/crypto_rc4.wasm.gz
+289KB sync/sync.wasm.gz
+290KB io/io.wasm.gz
+290KB hash/hash.wasm.gz
+290KB text_tabwriter/text_tabwriter.wasm.gz
+290KB hash_fnv/hash_fnv.wasm.gz
+290KB hash_adler32/hash_adler32.wasm.gz
+290KB crypto_hmac/crypto_hmac.wasm.gz
+290KB crypto_cipher/crypto_cipher.wasm.gz
+290KB encoding_ascii85/encoding_ascii85.wasm.gz
+290KB crypto_aes/crypto_aes.wasm.gz
+290KB hash_crc32/hash_crc32.wasm.gz
+290KB crypto/crypto.wasm.gz
+291KB hash_crc64/hash_crc64.wasm.gz
+294KB crypto_sha1/crypto_sha1.wasm.gz
+294KB image_color/image_color.wasm.gz
+294KB image_color_palette/image_color_palette.wasm.gz
+294KB crypto_sha256/crypto_sha256.wasm.gz
+295KB crypto_md5/crypto_md5.wasm.gz
+295KB syscall_js/syscall_js.wasm.gz
+296KB crypto_sha512/crypto_sha512.wasm.gz
+299KB math_rand/math_rand.wasm.gz
+305KB syscall/syscall.wasm.gz
+307KB time/time.wasm.gz
+322KB unicode/unicode.wasm.gz
+323KB os/os.wasm.gz
+324KB strings/strings.wasm.gz
+324KB bytes/bytes.wasm.gz
+324KB path/path.wasm.gz
+325KB bufio/bufio.wasm.gz
+326KB encoding_base32/encoding_base32.wasm.gz
+326KB os_signal/os_signal.wasm.gz
+333KB image/image.wasm.gz
+334KB image_draw/image_draw.wasm.gz
+341KB html/html.wasm.gz
+371KB image_jpeg/image_jpeg.wasm.gz
+414KB reflect/reflect.wasm.gz
+414KB sort/sort.wasm.gz
+414KB container_heap/container_heap.wasm.gz
+416KB encoding_binary/encoding_binary.wasm.gz
+416KB compress_bzip2/compress_bzip2.wasm.gz
+417KB encoding_base64/encoding_base64.wasm.gz
+417KB crypto_des/crypto_des.wasm.gz
+417KB encoding_pem/encoding_pem.wasm.gz
+418KB regexp/regexp.wasm.gz
+418KB regexp_syntax/regexp_syntax.wasm.gz
+419KB index_suffixarray/index_suffixarray.wasm.gz
+444KB encoding_hex/encoding_hex.wasm.gz
+444KB io_ioutil/io_ioutil.wasm.gz
+444KB runtime_debug/runtime_debug.wasm.gz
+444KB fmt/fmt.wasm.gz
+444KB mime_quotedprintable/mime_quotedprintable.wasm.gz
+444KB debug_plan9obj/debug_plan9obj.wasm.gz
+445KB path_filepath/path_filepath.wasm.gz
+445KB net_url/net_url.wasm.gz
+445KB debug_gosym/debug_gosym.wasm.gz
+445KB text_scanner/text_scanner.wasm.gz
+445KB compress_lzw/compress_lzw.wasm.gz
+446KB encoding_csv/encoding_csv.wasm.gz
+446KB context/context.wasm.gz
+446KB runtime_trace/runtime_trace.wasm.gz
+446KB text_template_parse/text_template_parse.wasm.gz
+446KB os_exec/os_exec.wasm.gz
+447KB os_user/os_user.wasm.gz
+447KB database_sql_driver/database_sql_driver.wasm.gz
+447KB go_token/go_token.wasm.gz
+447KB go_printer/go_printer.wasm.gz
+448KB go_scanner/go_scanner.wasm.gz
+448KB go_ast/go_ast.wasm.gz
+448KB database_sql/database_sql.wasm.gz
+449KB go_parser/go_parser.wasm.gz
+449KB go_format/go_format.wasm.gz
+450KB archive_tar/archive_tar.wasm.gz
+451KB debug_dwarf/debug_dwarf.wasm.gz
+452KB log/log.wasm.gz
+452KB testing_iotest/testing_iotest.wasm.gz
+454KB compress_zlib/compress_zlib.wasm.gz
+455KB compress_flate/compress_flate.wasm.gz
+456KB compress_gzip/compress_gzip.wasm.gz
+458KB runtime_pprof/runtime_pprof.wasm.gz
+461KB debug_macho/debug_macho.wasm.gz
+461KB debug_elf/debug_elf.wasm.gz
+465KB debug_pe/debug_pe.wasm.gz
+469KB encoding_json/encoding_json.wasm.gz
+497KB net/net.wasm.gz
+498KB math_big/math_big.wasm.gz
+498KB crypto_dsa/crypto_dsa.wasm.gz
+498KB net_textproto/net_textproto.wasm.gz
+499KB crypto_elliptic/crypto_elliptic.wasm.gz
+509KB crypto_rand/crypto_rand.wasm.gz
+509KB log_syslog/log_syslog.wasm.gz
+514KB crypto_rsa/crypto_rsa.wasm.gz
+533KB encoding_asn1/encoding_asn1.wasm.gz
+534KB crypto_x509_pkix/crypto_x509_pkix.wasm.gz
+544KB crypto_ecdsa/crypto_ecdsa.wasm.gz
+549KB flag/flag.wasm.gz
+552KB image_gif/image_gif.wasm.gz
+556KB testing/testing.wasm.gz
+558KB mime/mime.wasm.gz
+560KB testing_quick/testing_quick.wasm.gz
+569KB encoding_xml/encoding_xml.wasm.gz
+574KB encoding_gob/encoding_gob.wasm.gz
+576KB archive_zip/archive_zip.wasm.gz
+583KB go_constant/go_constant.wasm.gz
+586KB crypto_x509/crypto_x509.wasm.gz
+590KB crypto_tls/crypto_tls.wasm.gz
+593KB net_smtp/net_smtp.wasm.gz
+593KB net_http_httptrace/net_http_httptrace.wasm.gz
+597KB image_png/image_png.wasm.gz
+618KB net_mail/net_mail.wasm.gz
+652KB go_types/go_types.wasm.gz
+678KB text_template/text_template.wasm.gz
+679KB mime_multipart/mime_multipart.wasm.gz
+823KB go_doc/go_doc.wasm.gz
+893KB html_template/html_template.wasm.gz
+1051KB go_build/go_build.wasm.gz
+1273KB go_importer/go_importer.wasm.gz
+1617KB net_http/net_http.wasm.gz
+1617KB net_http_cookiejar/net_http_cookiejar.wasm.gz
+1619KB net_http_httputil/net_http_httputil.wasm.gz
+1639KB net_http_httptest/net_http_httptest.wasm.gz
+1686KB expvar/expvar.wasm.gz
+1703KB net_http_fcgi/net_http_fcgi.wasm.gz
+1705KB net_http_cgi/net_http_cgi.wasm.gz
+2299KB net_rpc_jsonrpc/net_rpc_jsonrpc.wasm.gz
+2299KB net_rpc/net_rpc.wasm.gz
+2455KB net_http_pprof/net_http_pprof.wasm.gz
+```
+
+### Brotli
+
+```sh
+222KB blank/blank.wasm.br # This package only contains func main().
+222KB container_list/container_list.wasm.br
+222KB math_cmplx/math_cmplx.wasm.br
+222KB math_bits/math_bits.wasm.br
+222KB container_ring/container_ring.wasm.br
+222KB math/math.wasm.br
+222KB runtime/runtime.wasm.br
+222KB encoding/encoding.wasm.br
+222KB crypto_subtle/crypto_subtle.wasm.br
+222KB runtime_race/runtime_race.wasm.br
+222KB unicode_utf8/unicode_utf8.wasm.br
+222KB unsafe/unsafe.wasm.br
+222KB errors/errors.wasm.br
+222KB unicode_utf16/unicode_utf16.wasm.br
+222KB sync_atomic/sync_atomic.wasm.br
+223KB crypto_rc4/crypto_rc4.wasm.br
+223KB strconv/strconv.wasm.br
+223KB plugin/plugin.wasm.br
+223KB sync/sync.wasm.br
+224KB text_tabwriter/text_tabwriter.wasm.br
+224KB hash_fnv/hash_fnv.wasm.br
+224KB hash/hash.wasm.br
+224KB crypto_hmac/crypto_hmac.wasm.br
+224KB io/io.wasm.br
+224KB crypto_cipher/crypto_cipher.wasm.br
+224KB hash_adler32/hash_adler32.wasm.br
+225KB hash_crc32/hash_crc32.wasm.br
+225KB encoding_ascii85/encoding_ascii85.wasm.br
+225KB hash_crc64/hash_crc64.wasm.br
+225KB crypto_aes/crypto_aes.wasm.br
+225KB crypto/crypto.wasm.br
+227KB image_color/image_color.wasm.br
+227KB crypto_sha1/crypto_sha1.wasm.br
+227KB image_color_palette/image_color_palette.wasm.br
+228KB crypto_md5/crypto_md5.wasm.br
+228KB crypto_sha256/crypto_sha256.wasm.br
+228KB syscall_js/syscall_js.wasm.br
+230KB crypto_sha512/crypto_sha512.wasm.br
+232KB math_rand/math_rand.wasm.br
+236KB syscall/syscall.wasm.br
+237KB time/time.wasm.br
+247KB unicode/unicode.wasm.br
+249KB os/os.wasm.br
+249KB path/path.wasm.br
+249KB strings/strings.wasm.br
+249KB bytes/bytes.wasm.br
+250KB bufio/bufio.wasm.br
+251KB os_signal/os_signal.wasm.br
+252KB encoding_base32/encoding_base32.wasm.br
+256KB image_draw/image_draw.wasm.br
+256KB image/image.wasm.br
+262KB html/html.wasm.br
+284KB image_jpeg/image_jpeg.wasm.br
+312KB reflect/reflect.wasm.br
+313KB sort/sort.wasm.br
+313KB container_heap/container_heap.wasm.br
+313KB encoding_binary/encoding_binary.wasm.br
+314KB encoding_base64/encoding_base64.wasm.br
+315KB crypto_des/crypto_des.wasm.br
+315KB encoding_pem/encoding_pem.wasm.br
+315KB regexp_syntax/regexp_syntax.wasm.br
+316KB regexp/regexp.wasm.br
+317KB index_suffixarray/index_suffixarray.wasm.br
+318KB compress_bzip2/compress_bzip2.wasm.br
+336KB encoding_hex/encoding_hex.wasm.br
+336KB fmt/fmt.wasm.br
+336KB path_filepath/path_filepath.wasm.br
+336KB debug_plan9obj/debug_plan9obj.wasm.br
+336KB debug_gosym/debug_gosym.wasm.br
+336KB io_ioutil/io_ioutil.wasm.br
+336KB context/context.wasm.br
+336KB text_scanner/text_scanner.wasm.br
+336KB runtime_debug/runtime_debug.wasm.br
+336KB mime_quotedprintable/mime_quotedprintable.wasm.br
+336KB net_url/net_url.wasm.br
+336KB compress_lzw/compress_lzw.wasm.br
+336KB runtime_trace/runtime_trace.wasm.br
+337KB text_template_parse/text_template_parse.wasm.br
+337KB database_sql_driver/database_sql_driver.wasm.br
+337KB encoding_csv/encoding_csv.wasm.br
+337KB go_token/go_token.wasm.br
+337KB os_exec/os_exec.wasm.br
+337KB go_scanner/go_scanner.wasm.br
+337KB os_user/os_user.wasm.br
+338KB go_ast/go_ast.wasm.br
+338KB go_printer/go_printer.wasm.br
+338KB database_sql/database_sql.wasm.br
+339KB go_parser/go_parser.wasm.br
+339KB archive_tar/archive_tar.wasm.br
+340KB go_format/go_format.wasm.br
+340KB log/log.wasm.br
+341KB testing_iotest/testing_iotest.wasm.br
+344KB compress_flate/compress_flate.wasm.br
+344KB debug_dwarf/debug_dwarf.wasm.br
+344KB compress_zlib/compress_zlib.wasm.br
+345KB compress_gzip/compress_gzip.wasm.br
+346KB runtime_pprof/runtime_pprof.wasm.br
+347KB debug_macho/debug_macho.wasm.br
+348KB debug_elf/debug_elf.wasm.br
+350KB debug_pe/debug_pe.wasm.br
+354KB encoding_json/encoding_json.wasm.br
+375KB net/net.wasm.br
+376KB net_textproto/net_textproto.wasm.br
+378KB crypto_elliptic/crypto_elliptic.wasm.br
+379KB math_big/math_big.wasm.br
+379KB crypto_dsa/crypto_dsa.wasm.br
+384KB log_syslog/log_syslog.wasm.br
+385KB crypto_rand/crypto_rand.wasm.br
+389KB crypto_rsa/crypto_rsa.wasm.br
+402KB encoding_asn1/encoding_asn1.wasm.br
+403KB crypto_x509_pkix/crypto_x509_pkix.wasm.br
+411KB crypto_ecdsa/crypto_ecdsa.wasm.br
+413KB flag/flag.wasm.br
+416KB image_gif/image_gif.wasm.br
+419KB testing/testing.wasm.br
+422KB testing_quick/testing_quick.wasm.br
+422KB mime/mime.wasm.br
+428KB encoding_xml/encoding_xml.wasm.br
+429KB encoding_gob/encoding_gob.wasm.br
+436KB archive_zip/archive_zip.wasm.br
+440KB go_constant/go_constant.wasm.br
+441KB crypto_x509/crypto_x509.wasm.br
+444KB crypto_tls/crypto_tls.wasm.br
+448KB image_png/image_png.wasm.br
+449KB net_http_httptrace/net_http_httptrace.wasm.br
+450KB net_smtp/net_smtp.wasm.br
+469KB net_mail/net_mail.wasm.br
+489KB go_types/go_types.wasm.br
+507KB text_template/text_template.wasm.br
+510KB mime_multipart/mime_multipart.wasm.br
+611KB go_doc/go_doc.wasm.br
+668KB html_template/html_template.wasm.br
+773KB go_build/go_build.wasm.br
+932KB go_importer/go_importer.wasm.br
+1184KB net_http_cookiejar/net_http_cookiejar.wasm.br
+1184KB net_http/net_http.wasm.br
+1185KB net_http_httputil/net_http_httputil.wasm.br
+1199KB net_http_httptest/net_http_httptest.wasm.br
+1232KB expvar/expvar.wasm.br
+1245KB net_http_cgi/net_http_cgi.wasm.br
+1245KB net_http_fcgi/net_http_fcgi.wasm.br
+1661KB net_rpc/net_rpc.wasm.br
+1662KB net_rpc_jsonrpc/net_rpc_jsonrpc.wasm.br
+1768KB net_http_pprof/net_http_pprof.wasm.br
+```
+

@@ -1,2 +1,3 @@
 .idea
 packages/*/*.wasm
+packages/*/*.wasm.*
